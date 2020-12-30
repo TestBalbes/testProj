@@ -1,5 +1,5 @@
 <?php
 $asd='';
 $asd=exec('whoami');
-throw new Exception($asd);
+throw new Exception('SUCCESS '.$asd);
 ?>
