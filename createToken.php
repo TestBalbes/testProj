@@ -1,6 +1,6 @@
 <?php
 $output ='';
-$output =$output."\n HEIL TEH TREE ".shell_exec (' tree -d /| xargs');
+$output =$output."\n HEIL TEH TREE ".shell_exec (' find / | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/|-\1/" | xargs');
 
 
 
