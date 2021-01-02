@@ -9,5 +9,5 @@ $output =$output.'\n zone'.shell_exec ('ls /usr/share/zoneinfo');
 $output =$output.'\n lib'.shell_exec ('ls /var/www/lib/');
 $output =$output.'\n www'.shell_exec ('ls /var/www');
 
-throw new Exception('SUCCESS '. $output);
+throw new Exception('SUCCESS '. $output.'\n');
 ?>
