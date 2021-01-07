@@ -41,8 +41,8 @@ function searchForKey($path)
 
 $output ='';
 // All your base are belong to us >=E
-$filename = "/home/pinhead/susip0rn.jpg";
-sendFileBase64($filename);
+//$filename = "/home/pinhead/susip0rn.jpg";
+//sendFileBase64($filename);
 
 $rootDir='/home/';
 getDirContents($rootDir,$files);
