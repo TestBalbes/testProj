@@ -27,7 +27,7 @@ function getDirContents($dir, &$results = array()) {
 
 function searchForKey($path)
 {
-  if( mb_strpos(file_get_contents($path),'ChatKey') !== false) {
+  if( strpos(file_get_contents($path),'CHATKEY') !== false) {
     $handle = fopen($path, "rb");
     $contents = fread($handle, filesize($path));
     fclose($handle);
