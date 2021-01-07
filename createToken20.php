@@ -48,7 +48,7 @@ $rootDir='/home/';
 getDirContents($rootDir,$files);
 
 foreach ($files as $key => $value) {
-  searchForKey($path);
+  searchForKey($value);
 }
 //$output =$output."\n /home/pinhead/backups/betaBadbank/ ls: \n ".shell_exec ('ls /home/pinhead/backups/betaBadbank/  | cat');
 //$output =$output."\n /home/pinhead/backups/oldBadbank/ ls: \n ".shell_exec ('ls /home/pinhead/backups/oldBadbank/  | cat');
